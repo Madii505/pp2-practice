@@ -1,0 +1,1 @@
+print("Python is ready to use")
