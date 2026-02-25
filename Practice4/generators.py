@@ -1,33 +1,37 @@
-class MyRange:
-    def __init__(self, start, end):
-        self.current = start
-        self.end = end
+# Squares up to N
+def squares_n(n):
+    for i in range(n + 1):
+        yield i * i
 
-    def __iter__(self):
-        return self
-
-    def __next__(self):
-        if self.current < self.end:
-            num = self.current
-            self.current += 1
-            return num
-        else:
-            raise StopIteration
-
-
+# Even numbers 0 to n
 def even_numbers(n):
     for i in range(n + 1):
         if i % 2 == 0:
             yield i
 
+# Divisible by 3 and 4
+def divisible_by_3_and_4(n):
+    for i in range(n + 1):
+        if i % 3 == 0 and i % 4 == 0:
+            yield i
 
-def squares(n):
-    return (i * i for i in range(n))
+# Squares from a to b
+def squares(a, b):
+    for i in range(a, b + 1):
+        yield i * i
+
+# Countdown from n to 0
+def countdown(n):
+    while n >= 0:
+        yield n
+        n -= 1
 
 
+# Example usage
 if __name__ == "__main__":
-    for num in MyRange(1, 5):
-        print(num)
-
-    print(list(even_numbers(10)))
-    print(list(squares(5)))
+    print(list(squares_n(5)))
+    print(",".join(map(str, even_numbers(10))))
+    print(list(divisible_by_3_and_4(50)))
+    for s in squares(3, 6):
+        print(s)
+    print(list(countdown(5)))

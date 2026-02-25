@@ -1,16 +1,25 @@
 import math
-import random
 
-print("Square root of 16:", math.sqrt(16))
-print("Pi value:", math.pi)
-print("Floor of 3.7:", math.floor(3.7))
-print("Ceil of 3.2:", math.ceil(3.2))
+# Degree to radian
+degree = 15
+radian = degree * (math.pi / 180)
+print("Output radian:", round(radian, 6))
 
-print("Min:", min(1, 5, -2, 10))
-print("Max:", max(1, 5, -2, 10))
-print("Abs:", abs(-7))
-print("Round:", round(3.14159, 2))
-print("Power:", pow(2, 3))
+# Area of trapezoid
+height = 5
+base1 = 5
+base2 = 6
+area_trap = (base1 + base2) / 2 * height
+print("Trapezoid area:", area_trap)
 
-print("Random integer (1-10):", random.randint(1, 10))
-print("Random float (0-1):", random.random())
+# Area of regular polygon
+n = 4
+side = 25
+area_polygon = (n * side ** 2) / (4 * math.tan(math.pi / n))
+print("The area of the polygon is:", int(area_polygon))
+
+# Area of parallelogram
+base = 5
+height = 6
+area_para = base * height
+print("Parallelogram area:", float(area_para))

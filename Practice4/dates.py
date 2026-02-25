@@ -1,16 +1,19 @@
 from datetime import datetime, timedelta
 
-now = datetime.now()
-print("Current datetime:", now)
+# Subtract five days
+print("Five days ago:", datetime.now() - timedelta(days=5))
 
-formatted = now.strftime("%Y-%m-%d %H:%M:%S")
-print("Formatted:", formatted)
+# Yesterday, today, tomorrow
+today = datetime.now()
+print("Yesterday:", today - timedelta(days=1))
+print("Today:", today)
+print("Tomorrow:", today + timedelta(days=1))
 
-future = now + timedelta(days=7)
-print("After 7 days:", future)
+# Drop microseconds
+print("Without microseconds:", today.replace(microsecond=0))
 
-past = now - timedelta(days=7)
-print("7 days ago:", past)
-
-difference = future - now
-print("Difference in days:", difference.days)
+# Difference between two dates in seconds
+date1 = datetime(2025, 1, 1)
+date2 = datetime(2025, 1, 10)
+diff = (date2 - date1).total_seconds()
+print("Difference in seconds:", diff)

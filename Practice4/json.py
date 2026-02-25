@@ -1,20 +1,18 @@
 import json
 
-with open("sample-data.json", "r") as file:
-    data = json.load(file)
+with open("sample-data.json") as f:
+    data = json.load(f)
 
-print("Loaded JSON:", data)
+print("Interface Status")
+print("=" * 80)
+print(f"{'DN':50} {'Description':20} {'Speed':7} {'MTU':6}")
+print("-" * 80)
 
-json_string = json.dumps(data, indent=4)
-print("JSON string:", json_string)
+for item in data["imdata"]:
+    attrs = item["l1PhysIf"]["attributes"]
+    dn = attrs["dn"]
+    descr = attrs["descr"]
+    speed = attrs["speed"]
+    mtu = attrs["mtu"]
 
-new_data = {
-    "name": "Madi",
-    "age": 18,
-    "city": "Almaty"
-}
-
-with open("output.json", "w") as file:
-    json.dump(new_data, file, indent=4)
-
-print("New JSON saved to output.json")
+    print(f"{dn:50} {descr:20} {speed:7} {mtu:6}")
